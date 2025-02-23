@@ -3,9 +3,12 @@
 }
 
 .hw {
-
+padding: 20px;
+border-bottom: 2px solid rgba(209, 203, 211, 0.84);
 }
 
 .hwTitle {
+margin: 20px;
+border-top: 2px solid rgba(209, 203, 211, 0.84);
 
 }

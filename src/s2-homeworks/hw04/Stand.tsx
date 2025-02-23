@@ -10,6 +10,15 @@ const Stand = () => {
 
     const [stateForAllCheckboxes, setChecked] = useState<boolean>(false)
 
+    const onEnterHandler = () => {
+        if (stateForAllInputs.trim()) {
+            setError('');
+        } else {
+            setError('Error: поле не должно быть пустым');
+        }
+        setValue('');
+    }
+
     return (
         <div id={'hw4-stand'} className={s.stand}>
             <div className={s.inputs}>
@@ -22,20 +31,22 @@ const Stand = () => {
                     />
                 </div>
                 {/*инпут с ошибкой:*/}
+
                 <div>
                     <SuperInputText
                         id={'hw4-super-input-with-error'}
                         value={stateForAllInputs}
                         onChangeText={setValue}
                         error={error}
-                        onEnter={() => {
-                            setError(
-                                stateForAllInputs.trim()
-                                    ? ''
-                                    : 'Error'
-                            )
-                            setValue('')
-                        }}
+                        onEnter={onEnterHandler}
+                        // onEnter={() => {
+                        //     setError(
+                        //         stateForAllInputs.trim()
+                        //             ? ''
+                        //             : 'Error'
+                        //     )
+                        //     setValue('')
+                        // }}
                     />
                 </div>
             </div>
